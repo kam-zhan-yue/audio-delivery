@@ -3,7 +3,7 @@ using UnityEditor;
 #endif
 using UnityEngine;
 
-namespace AudioExpress
+namespace Kuroneko.AudioDelivery
 {
 	/// <summary>
 	/// Represents a <see cref="AudioPool"/> of <see cref="AudioUnit"/> instantiated in the scene.

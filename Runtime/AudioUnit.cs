@@ -3,7 +3,7 @@ using UnityEngine;
 using UnityEngine.Audio;
 using Random = UnityEngine.Random;
 
-namespace AudioExpress
+namespace Kuroneko.AudioDelivery
 {
 	/// <summary>
 	/// Handle playing sound on-demand using <see cref="AudioSource"/> component.

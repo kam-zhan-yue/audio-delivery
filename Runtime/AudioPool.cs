@@ -1,7 +1,7 @@
 ﻿using System.Collections.Generic;
 using UnityEngine;
 
-namespace AudioExpress
+namespace Kuroneko.AudioDelivery
 {
 	/// <summary>
 	/// Handles instantiated <see cref="AudioUnit"/> game objects in the scene.

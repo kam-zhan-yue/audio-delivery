@@ -1,7 +1,9 @@
 {
-    "name": "AudioExpress",
+    "name": "Kuroneko.AudioDelivery",
     "rootNamespace": "",
-    "references": [],
+    "references": [
+        "GUID:02054187d41f5471eb0b6169df0f8311"
+    ],
     "includePlatforms": [],
     "excludePlatforms": [],
     "allowUnsafeCode": false,

@@ -1,7 +1,7 @@
 ﻿using UnityEditor;
 using UnityEngine;
 
-namespace AudioExpress
+namespace Kuroneko.AudioDelivery
 {
 	[CustomEditor(typeof(AudioClip))]
 	internal class AudioClipEditor : Editor

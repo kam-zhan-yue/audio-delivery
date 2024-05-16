@@ -1,7 +1,7 @@
 ﻿using UnityEngine;
 using UnityEngine.Audio;
 
-namespace AudioExpress
+namespace Kuroneko.AudioDelivery
 {
 	/// <summary>
 	/// Holds settings for playing sound using <see cref="AudioUnit"/>.

@@ -1,19 +1,16 @@
 {
-    "name": "com.sgaumin.audioexpress",
-    "version": "0.2.0",
-    "displayName": "Audio Express",
+    "name": "com.kamzhanyue.audio-delivery",
+    "version": "0.1.0",
+    "displayName": "Audio Delivery",
 	"description": "Lightweight Unity Utility to quickly setup and play audio",
-	"unity": "2018.4",
-	"unityRelease": "0b5",
-	"documentationUrl": "https://github.com/sgaumin/AudioExpress/blob/main/README.md",
-	"changelogUrl": "https://github.com/sgaumin/AudioExpress/blob/main/CHANGELOG.md",
-	"licensesUrl": "https://github.com/sgaumin/AudioExpress/blob/main/LICENSE.md",
-    "keywords": ["audio", "inspector", "editor"],
-	"type": "tool",
+	"unity": "2022.3",
+    "dependencies": {
+      "com.kamzhanyue.utility-delivery": "0.1.0"
+    },
 	"hideInEditor": true,
     "author": {
-        "name": "Sébastien Gaumin",
-        "email": "sgaumin@gmail.com",
-        "url": "https://github.com/sgaumin"
+        "name": "Kam Zhan Yue",
+        "email": "kamzhanyue@gmail.com",
+        "url": "https://kam-zhan-yue.github.io/"
     }
 }

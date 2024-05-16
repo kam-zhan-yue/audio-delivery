@@ -1,7 +1,7 @@
 using UnityEditor;
 using UnityEngine;
 
-namespace AudioExpress
+namespace Kuroneko.AudioDelivery
 {
 	[CustomPropertyDrawer(typeof(AudioClip))]
 	internal class AudioClipPropertyDrawer : PropertyDrawer

@@ -1,5 +1,5 @@
 {
-    "name": "AudioExpress.Editor",
+    "name": "Kuroneko.AudioDelivery.Editor",
     "rootNamespace": "",
     "references": [
         "GUID:d55fea9d4d2eb84458bd13ab232a31ff"
