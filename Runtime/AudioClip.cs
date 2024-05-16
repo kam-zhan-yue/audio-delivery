@@ -13,7 +13,7 @@ namespace Kuroneko.AudioDelivery
 		[SerializeField] private UnityEngine.AudioClip clip;
 		[SerializeField] private UnityEngine.AudioClip[] clips;
 		[SerializeField] private AudioMixerGroup mixerGroup;
-		[SerializeField, Range(0f, 1f)] private float volume;
+		[SerializeField, Range(0f, 1f)] private float volume = 1f;
 		[SerializeField] private bool loop;
 		[SerializeField] private PitchVariation pitchVariation;
 
