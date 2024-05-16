@@ -3,7 +3,7 @@ using UnityEngine;
 
 namespace Kuroneko.AudioDelivery
 {
-    [CreateAssetMenu(menuName = "ScriptableObject/SoundDatabase")]
+    [CreateAssetMenu(menuName = "ScriptableObjects/AudioDelivery/SoundDatabase")]
     public class SoundDatabase : ScriptableObject
     {
         public Sound[] sounds = Array.Empty<Sound>();

@@ -40,7 +40,7 @@ namespace Kuroneko.AudioDelivery
 
 			Source = GetComponent<AudioSource>();
 			Source.playOnAwake = false;
-			Source.volume = 1f;
+			Source.volume = audioClip.Volume;
 		}
 
 		internal void Play()

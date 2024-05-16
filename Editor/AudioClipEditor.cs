@@ -47,6 +47,7 @@ namespace Kuroneko.AudioDelivery
 
 			EditorGUILayout.Space(EditorGUIUtility.singleLineHeight);
 			EditorGUILayout.PropertyField(serializedObject.FindProperty("loop"));
+			EditorGUILayout.PropertyField(serializedObject.FindProperty("volume"));
 			EditorGUILayout.PropertyField(serializedObject.FindProperty("pitchVariation"));
 
 			serializedObject.ApplyModifiedProperties();

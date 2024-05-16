@@ -6,13 +6,14 @@ namespace Kuroneko.AudioDelivery
 	/// <summary>
 	/// Holds settings for playing sound using <see cref="AudioUnit"/>.
 	/// </summary>
-	[CreateAssetMenu(fileName = "Clip", menuName = "Audio Express/Clip", order = 1)]
+	[CreateAssetMenu(fileName = "Clip", menuName = "ScriptableObjects/AudioDelivery/Clip", order = 1)]
 	public class AudioClip : ScriptableObject
 	{
 		[SerializeField] private bool isUsingClips;
 		[SerializeField] private UnityEngine.AudioClip clip;
 		[SerializeField] private UnityEngine.AudioClip[] clips;
 		[SerializeField] private AudioMixerGroup mixerGroup;
+		[SerializeField, Range(0f, 1f)] private float volume;
 		[SerializeField] private bool loop;
 		[SerializeField] private PitchVariation pitchVariation;
 
@@ -22,6 +23,7 @@ namespace Kuroneko.AudioDelivery
 		internal AudioMixerGroup MixerGroup => mixerGroup;
 		internal bool Loop => loop;
 		internal PitchVariation PitchVariation => pitchVariation;
+		internal float Volume => volume;
 
 		/// <summary>
 		/// Indicates whether or not this <see cref="AudioClip"/> is playing any <see cref="AudioUnit"/>.
