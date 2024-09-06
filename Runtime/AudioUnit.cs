@@ -28,19 +28,19 @@ namespace Kuroneko.AudioDelivery
 			private set { source = value; }
 		}
 		internal bool IsPlaying => Source.isPlaying;
-		internal AudioClip AudioClip { get; private set; }
+		internal AudioConfig AudioConfig { get; private set; }
 
-		internal void Setup(AudioClip audioClip)
+		internal void Setup(AudioConfig audioConfig)
 		{
-			AudioClip = audioClip;
-			clips = audioClip.IsUsingClips ? clips : new UnityEngine.AudioClip[] { audioClip.Clip };
-			mixerGroup = audioClip.MixerGroup;
-			pitchVariation = audioClip.PitchVariation;
-			loop = audioClip.Loop;
+			AudioConfig = audioConfig;
+			clips = audioConfig.IsUsingClips ? clips : new UnityEngine.AudioClip[] { audioConfig.Clip };
+			mixerGroup = audioConfig.MixerGroup;
+			pitchVariation = audioConfig.PitchVariation;
+			loop = audioConfig.Loop;
 
 			Source = GetComponent<AudioSource>();
 			Source.playOnAwake = false;
-			Source.volume = audioClip.Volume;
+			Source.volume = audioConfig.Volume;
 		}
 
 		internal void Play()
@@ -64,7 +64,7 @@ namespace Kuroneko.AudioDelivery
 		internal void Stop()
 		{
 			Source.Stop();
-			AudioClip = null;
+			AudioConfig = null;
 			if (returnningToPool != null) StopCoroutine(returnningToPool);
 
 			AudioPool.Return(this);

@@ -3,7 +3,7 @@ using UnityEngine;
 
 namespace Kuroneko.AudioDelivery
 {
-	[CustomPropertyDrawer(typeof(AudioClip))]
+	[CustomPropertyDrawer(typeof(AudioConfig))]
 	internal class AudioClipPropertyDrawer : PropertyDrawer
 	{
 		private const float LABEL_WIDTH = 80f;
@@ -18,8 +18,8 @@ namespace Kuroneko.AudioDelivery
 		{
 			EditorGUI.BeginProperty(position, label, property);
 
-			AudioClip context = null;
-			if (property.objectReferenceValue is AudioClip audioClip)
+			AudioConfig context = null;
+			if (property.objectReferenceValue is AudioConfig audioClip)
 				context = audioClip;
 			else
 				property.objectReferenceValue = null;

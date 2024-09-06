@@ -1,9 +1,13 @@
 using System;
-using AudioClip = Kuroneko.AudioDelivery.AudioClip;
+using Kuroneko.AudioDelivery;
+using Sirenix.OdinInspector;
+using UnityEngine.Serialization;
 
 [Serializable]
 public class Sound
 {
+    [TableColumnWidth(100, Resizable = false)]
     public string id;
-    public AudioClip clip;
+    [InlineEditor]
+    public AudioConfig config;
 }

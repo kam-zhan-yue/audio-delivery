@@ -16,7 +16,7 @@ namespace Kuroneko.AudioDelivery
         {
             if (soundDatabase.TryGetSound(clipName, out Sound sound))
             {
-                sound.clip.Play();
+                sound.config.Play();
             }
         }
 
@@ -24,7 +24,7 @@ namespace Kuroneko.AudioDelivery
         {
             if (soundDatabase.TryGetSound(clipName, out Sound sound))
             {
-                sound.clip.Stop();
+                sound.config.Stop();
             }
         }
     }

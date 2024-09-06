@@ -15,7 +15,7 @@ namespace Kuroneko.AudioDelivery
 		private static GameObject holder;
 
 		/// <summary>
-		/// Get or Create an <see cref="AudioUnit"/> for playing any <see cref="AudioClip"/>.
+		/// Get or Create an <see cref="AudioUnit"/> for playing any <see cref="AudioConfig"/>.
 		/// </summary>
 		/// <returns>Instance of an <see cref="AudioUnit"/></returns>
 		internal static AudioUnit Get()
@@ -81,15 +81,15 @@ namespace Kuroneko.AudioDelivery
 		}
 
 		/// <summary>
-		/// Indicates whether or not at least one <see cref="AudioUnit"/> in the <see cref="AudioPool"/> is playing a specific <see cref="AudioClip"/>.
+		/// Indicates whether or not at least one <see cref="AudioUnit"/> in the <see cref="AudioPool"/> is playing a specific <see cref="AudioConfig"/>.
 		/// </summary>
-		/// <param name="clip">Reference of the <see cref="AudioClip"/> to look for.</param>
-		/// <returns>Whether or not the specified <see cref="AudioClip"/> is playing.</returns>
-		public static bool IsPlaying(AudioClip clip)
+		/// <param name="config">Reference of the <see cref="AudioConfig"/> to look for.</param>
+		/// <returns>Whether or not the specified <see cref="AudioConfig"/> is playing.</returns>
+		public static bool IsPlaying(AudioConfig config)
 		{
 			foreach (AudioUnit unit in pool)
 			{
-				if (unit != null && unit.AudioClip == clip && unit.IsPlaying)
+				if (unit != null && unit.AudioConfig == config && unit.IsPlaying)
 				{
 					return true;
 				}
@@ -99,14 +99,14 @@ namespace Kuroneko.AudioDelivery
 		}
 
 		/// <summary>
-		/// Stops all <see cref="AudioUnit"/> in the <see cref="AudioPool"/> currently playing a specific <see cref="AudioClip"/>.
+		/// Stops all <see cref="AudioUnit"/> in the <see cref="AudioPool"/> currently playing a specific <see cref="AudioConfig"/>.
 		/// </summary>
-		/// <param name="clip">Reference of the <see cref="AudioClip"/> to look for.</param>
-		public static void Stop(AudioClip clip)
+		/// <param name="config">Reference of the <see cref="AudioConfig"/> to look for.</param>
+		public static void Stop(AudioConfig config)
 		{
 			foreach (AudioUnit unit in pool)
 			{
-				if (unit != null && unit.AudioClip == clip)
+				if (unit != null && unit.AudioConfig == config)
 				{
 					unit.Stop();
 				}

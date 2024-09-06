@@ -3,14 +3,14 @@ using UnityEngine;
 
 namespace Kuroneko.AudioDelivery
 {
-	[CustomEditor(typeof(AudioClip))]
+	[CustomEditor(typeof(AudioConfig))]
 	internal class AudioClipEditor : Editor
 	{
-		AudioClip context;
+		AudioConfig context;
 
 		private void OnEnable()
 		{
-			context = target as AudioClip;
+			context = target as AudioConfig;
 		}
 
 		public override void OnInspectorGUI()
