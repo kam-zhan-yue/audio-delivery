@@ -12,20 +12,36 @@ namespace Kuroneko.AudioDelivery
             ServiceLocator.Instance.Register<IAudioService>(this);
         }
 
-        public void Play(string clipName)
+        public void Play(string clipName, string instanceId = "")
         {
             if (soundDatabase.TryGetSound(clipName, out Sound sound))
-            {
-                sound.config.Play();
-            }
+                sound.config.Play(instanceId);
+            else
+                Debug.LogWarning($"AudioDelivery | {clipName} could not be found in {soundDatabase.name}!");
         }
 
-        public void Stop(string clipName)
+        public void Pause(string clipName, string instanceId = "")
         {
             if (soundDatabase.TryGetSound(clipName, out Sound sound))
-            {
-                sound.config.Stop();
-            }
+                sound.config.Pause(instanceId);
+            else
+                Debug.LogWarning($"AudioDelivery | {clipName} could not be found in {soundDatabase.name}!");
+        }
+
+        public void Resume(string clipName, string instanceId = "")
+        {
+            if (soundDatabase.TryGetSound(clipName, out Sound sound))
+                sound.config.Resume(instanceId);
+            else
+                Debug.LogWarning($"AudioDelivery | {clipName} could not be found in {soundDatabase.name}!");
+        }
+
+        public void Stop(string clipName, string instanceId = "")
+        {
+            if (soundDatabase.TryGetSound(clipName, out Sound sound))
+                sound.config.Stop(instanceId);
+            else
+                Debug.LogWarning($"AudioDelivery | {clipName} could not be found in {soundDatabase.name}!");
         }
     }
 }

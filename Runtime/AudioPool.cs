@@ -8,7 +8,7 @@ namespace Kuroneko.AudioDelivery
 	/// </summary>
 	public static class AudioPool
 	{
-		private const string poolParent = "AudioExpress";
+		private const string poolParent = "AudioDelivery";
 		private const string unitPrefix = "AudioUnit: ";
 
 		private static List<AudioUnit> pool = new List<AudioUnit>();
@@ -18,7 +18,7 @@ namespace Kuroneko.AudioDelivery
 		/// Get or Create an <see cref="AudioUnit"/> for playing any <see cref="AudioConfig"/>.
 		/// </summary>
 		/// <returns>Instance of an <see cref="AudioUnit"/></returns>
-		internal static AudioUnit Get()
+		internal static AudioUnit Get(string instanceId = "")
 		{
 			// Check if we already have declare a game object holder for our units.
 			if (holder == null)
@@ -67,16 +67,18 @@ namespace Kuroneko.AudioDelivery
 			}
 
 			unit.name = unitPrefix;
+			unit.ID = instanceId;
 
 			return unit;
 		}
-
+		
 		/// <summary>
 		/// Returns a <see cref="AudioUnit"/> after use.
 		/// </summary>
 		/// <param name="unit">Reference of the <see cref="AudioUnit"/> to return.</param>
 		internal static void Return(AudioUnit unit)
 		{
+			unit.ID = string.Empty;
 			unit.gameObject.SetActive(false);
 		}
 
@@ -96,6 +98,36 @@ namespace Kuroneko.AudioDelivery
 			}
 
 			return false;
+		}
+
+		public static void Pause(AudioConfig config, string instanceId = "")
+		{
+			foreach (AudioUnit unit in pool)
+			{
+				// If there is no valid unit, then continue
+				if (unit == null || unit.AudioConfig != config)
+					continue;
+				// If no instance ID is provided, then pause all of them
+				if (string.IsNullOrEmpty(instanceId))
+					unit.Pause();
+				else if (instanceId == unit.ID)
+					unit.Pause();
+			}
+		}
+		
+		public static void Resume(AudioConfig config, string instanceId = "")
+		{
+			foreach (AudioUnit unit in pool)
+			{
+				// If there is no valid unit, then continue
+				if (unit == null || unit.AudioConfig != config)
+					continue;
+				// If no instance ID is provided, then pause all of them
+				if (string.IsNullOrEmpty(instanceId))
+					unit.Resume();
+				else if (instanceId == unit.ID)
+					unit.Resume();
+			}
 		}
 
 		/// <summary>

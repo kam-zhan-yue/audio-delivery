@@ -33,7 +33,7 @@ namespace Kuroneko.AudioDelivery
 		/// <summary>
 		/// Plays a sound using <see cref="AudioUnit"/>.
 		/// </summary>
-		public void Play()
+		public void Play(string instanceId = "")
 		{
 			// Making sure that clip references are not null
 			bool issueDetected = false;
@@ -55,15 +55,25 @@ namespace Kuroneko.AudioDelivery
 				return;
 			}
 
-			AudioUnit audioUnit = AudioPool.Get();
+			AudioUnit audioUnit = AudioPool.Get(instanceId);
 			audioUnit.Setup(this);
 			audioUnit.Play();
 		}
 
+		public void Pause(string instanceId = "")
+		{
+			AudioPool.Pause(this, instanceId);
+		}
+
+		public void Resume(string instanceId = "")
+		{
+			AudioPool.Resume(this, instanceId);
+		}
+		
 		/// <summary>
 		/// Stops all <see cref="AudioUnit"/> currently playing this <see cref="AudioConfig"/>.
 		/// </summary>
-		public void Stop()
+		public void Stop(string instanceId = "")
 		{
 			AudioPool.Stop(this);
 		}

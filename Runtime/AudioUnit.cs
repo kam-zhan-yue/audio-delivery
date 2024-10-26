@@ -10,12 +10,13 @@ namespace Kuroneko.AudioDelivery
 	/// </summary>
 	internal class AudioUnit : MonoBehaviour
 	{
+		public string ID { get; set; }
 		private AudioSource source;
 		private UnityEngine.AudioClip[] clips;
 		private AudioMixerGroup mixerGroup;
 		private PitchVariation pitchVariation;
 		private bool loop;
-		private Coroutine returnningToPool;
+		private Coroutine returningToPool;
 
 		internal AudioSource Source
 		{
@@ -57,7 +58,7 @@ namespace Kuroneko.AudioDelivery
 
 			if (!loop)
 			{
-				returnningToPool = StartCoroutine(WaitBeforeReturningToPool());
+				returningToPool = StartCoroutine(WaitBeforeReturningToPool());
 			}
 		}
 
@@ -65,9 +66,19 @@ namespace Kuroneko.AudioDelivery
 		{
 			Source.Stop();
 			AudioConfig = null;
-			if (returnningToPool != null) StopCoroutine(returnningToPool);
+			if (returningToPool != null) StopCoroutine(returningToPool);
 
 			AudioPool.Return(this);
+		}
+
+		internal void Pause()
+		{
+			Source.Pause();
+		}
+
+		internal void Resume()
+		{
+			Source.UnPause();
 		}
 
 		private float SetPitch(PitchVariation variation)
