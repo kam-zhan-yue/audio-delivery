@@ -55,7 +55,7 @@ namespace Kuroneko.AudioDelivery
 				return;
 			}
 
-			AudioUnit audioUnit = AudioPool.Get(instanceId);
+			AudioUnit audioUnit = AudioPool.Create(instanceId);
 			audioUnit.Setup(this);
 			audioUnit.Play();
 		}
@@ -76,6 +76,11 @@ namespace Kuroneko.AudioDelivery
 		public void Stop(string instanceId = "")
 		{
 			AudioPool.Stop(this);
+		}
+
+		public AudioSource Get(string instanceId = "")
+		{
+			return AudioPool.Get(this, instanceId);
 		}
 	}
 }

@@ -18,7 +18,7 @@ namespace Kuroneko.AudioDelivery
 		/// Get or Create an <see cref="AudioUnit"/> for playing any <see cref="AudioConfig"/>.
 		/// </summary>
 		/// <returns>Instance of an <see cref="AudioUnit"/></returns>
-		internal static AudioUnit Get(string instanceId = "")
+		internal static AudioUnit Create(string instanceId = "")
 		{
 			// Check if we already have declare a game object holder for our units.
 			if (holder == null)
@@ -70,6 +70,23 @@ namespace Kuroneko.AudioDelivery
 			unit.ID = instanceId;
 
 			return unit;
+		}
+
+		public static AudioSource Get(AudioConfig config, string instanceId = "")
+		{
+			foreach (AudioUnit unit in pool)
+			{
+				// If there is no valid unit, then continue
+				if (unit == null || unit.AudioConfig != config)
+					continue;
+				// If no instance ID is provided, then get the first one
+				if (string.IsNullOrEmpty(instanceId))
+					return unit.Source;
+				if (instanceId == unit.ID)
+					return unit.Source;
+			}
+
+			return null;
 		}
 		
 		/// <summary>
